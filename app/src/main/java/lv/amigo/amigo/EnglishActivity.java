@@ -195,7 +195,7 @@ public class EnglishActivity extends AppCompatActivity implements LoaderCallback
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.length() < 9;
+        return email.length() < 12;
     }
 
     private boolean isPasswordValid(String password) {

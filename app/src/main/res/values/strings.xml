@@ -22,9 +22,11 @@
     <string name="logo">Logo</string>
     <string name="infinity">I N F I N I T Y</string>
     <string name="quote">Life Beyond Limits</string>
-    <string name="title_home">Home</string>
-    <string name="title_plan">Plans</string>
-    <string name="title_about">About</string>
+    <string name="title_stat">Statistics</string>
+    <string name="title_Offers">Offers</string>
+    <string name="title_shop">E-Shop</string>
+    <string name="title_call">Call</string>
+    <string name="title_profile">Profile</string>
     <string name="mobileno">Mobile Number</string>
     <string name="login">LOG IN</string>
     <string name="singin">SIGN IN</string>

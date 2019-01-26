@@ -17,14 +17,20 @@ public class Stats_en extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                case R.id.navigation_Statistics:
+                    mTextMessage.setText(R.string.title_stat);
                     return true;
-                case R.id.navigation_plan:
-                    mTextMessage.setText(R.string.title_plan);
+                case R.id.navigation_Offers:
+                    mTextMessage.setText(R.string.title_Offers);
                     return true;
-                case R.id.navigation_about:
-                    mTextMessage.setText(R.string.title_about);
+                case R.id.navigation_Shop:
+                    mTextMessage.setText(R.string.title_shop);
+                    return true;
+                case R.id.navigation_Call:
+                    mTextMessage.setText(R.string.title_call);
+                    return true;
+                case R.id.navigation_Profile:
+                    mTextMessage.setText(R.string.title_profile);
                     return true;
             }
             return false;
