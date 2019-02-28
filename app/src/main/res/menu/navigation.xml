@@ -12,7 +12,6 @@
         android:icon="@drawable/ic_card_giftcard_black_24dp"
         android:tint="@color/colorAccent"
         android:title="@string/title_Offers" />
-
     <item
         android:id="@+id/navigation_Shop"
         android:icon="@drawable/ic_shopping_cart_black_24dp"
@@ -30,5 +29,6 @@
         android:icon="@drawable/ic_person_black_24dp"
         android:tint="@color/colorAccent"
         android:title="@string/title_profile" />
+
 
 </menu>

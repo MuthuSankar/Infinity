@@ -9,8 +9,9 @@
     android:paddingTop="160dp"
     android:paddingRight="20dp"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@drawable/n"
-    tools:context=".EnglishActivity">
+    android:background="@drawable/n2"
+    tools:context=".EnglishActivity"
+    android:windowSoftInputMode="adjustResize">
 
     <!-- Login progress -->
     <ProgressBar
@@ -24,7 +25,7 @@
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="382dp">
 
         <LinearLayout
             android:id="@+id/email_login_form"
@@ -44,28 +45,14 @@
                     android:id="@+id/num1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="8"
-                    android:hint="xxxxxxxx"
+                    android:backgroundTint="#FFFFFF"
+                    android:ems="10"
+                    android:hint="Telefona Numurs"
                     android:inputType="phone"
-                    android:maxLength="10"
-                    android:paddingLeft="48dp"
-                    android:paddingTop="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="8dp"
-                    android:textSize="18sp"
-                    android:textStyle="bold">
-                    <requestFocus />
-                </AutoCompleteTextView>
-
-                <TextView
-                    android:id="@+id/prefix"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:text="+91" />
+                    android:maxLength="12"
+                    android:paddingLeft="20dp"
+                    android:paddingBottom="20dp"
+                    android:textSize="18sp"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -77,14 +64,18 @@
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="parole"
+                    android:backgroundTint="#FFFFFF"
+                    android:ems="10"
+                    android:hint="Parole"
                     android:imeActionId="6"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
+                    android:paddingLeft="25dp"
                     android:paddingBottom="20dp"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColorHint="#FFFFFF" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -94,18 +85,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:background="@drawable/buttonshape"
                 android:text="Pieslēgties"
-                android:textColor="#FF0000"
-                android:textStyle="bold" />
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"/>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/registerbutton"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="111dp"
+                android:layout_marginLeft="46dp"
                 android:layout_marginTop="10dp"
-                android:textColor="#40627C"
-                android:text="Vai reģistrēties šeit" />
+                android:background="@drawable/buttonshape"
+                android:text="Lelogoties"
+                android:textColor="#FFFFFF"
+                android:textStyle="normal" />
+
 
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/Button01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:layout_weight="0.01"
+        android:background="@android:color/transparent"
+        android:text="Aizmirsi paroli?"
+        android:layout_marginBottom="72dp"/>
+
 </LinearLayout>

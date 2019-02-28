@@ -1,4 +1,4 @@
-package lv.amigo.amigo;
+package lv.infinity.app;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

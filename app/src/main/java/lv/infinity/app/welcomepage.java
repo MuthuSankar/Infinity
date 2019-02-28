@@ -1,4 +1,4 @@
-package lv.amigo.amigo;
+package lv.infinity.app;
 
 import android.os.Handler;
 import android.content.Intent;

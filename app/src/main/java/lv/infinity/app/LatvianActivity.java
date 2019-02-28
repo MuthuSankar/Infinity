@@ -1,9 +1,9 @@
-package lv.amigo.amigo;
+package lv.infinity.app;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -16,7 +16,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 
-import android.view.WindowManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -37,9 +36,9 @@ import java.util.List;
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
- * A login screen that offers login via number/password.
+ * A login screen that offers login via email/password.
  */
-public class EnglishActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class LatvianActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -47,7 +46,7 @@ public class EnglishActivity extends AppCompatActivity implements LoaderCallback
     private static final int REQUEST_READ_CONTACTS = 0;
 
     /**
-     * A dummy authentication store containing known user names and passwords.
+     * A dummy authentication store containing known User names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
@@ -59,19 +58,19 @@ public class EnglishActivity extends AppCompatActivity implements LoaderCallback
     private UserLoginTask mAuthTask = null;
 
     // UI references.
-    private AutoCompleteTextView mNumView;
+    private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_english);
+        setContentView(R.layout.activity_latvian);
         // Set up the login form.
-        mNumView = (AutoCompleteTextView) findViewById(R.id.num);
+        mEmailView = (AutoCompleteTextView) findViewById(R.id.num1);
         populateAutoComplete();
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -113,7 +112,7 @@ public class EnglishActivity extends AppCompatActivity implements LoaderCallback
             return true;
         }
         if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
-            Snackbar.make(mNumView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
+            Snackbar.make(mEmailView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
                     .setAction(android.R.string.ok, new View.OnClickListener() {
                         @Override
                         @TargetApi(Build.VERSION_CODES.M)
@@ -152,17 +151,17 @@ public class EnglishActivity extends AppCompatActivity implements LoaderCallback
         }
 
         // Reset errors.
-        mNumView.setError(null);
+        mEmailView.setError(null);
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mNumView.getText().toString();
+        String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
 
-        // Check for a valid password, if the user entered one.
+        // Check for a valid password, if the User entered one.
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
@@ -171,12 +170,12 @@ public class EnglishActivity extends AppCompatActivity implements LoaderCallback
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
-            mNumView.setError(getString(R.string.error_field_required));
-            focusView = mNumView;
+            mEmailView.setError(getString(R.string.error_field_required));
+            focusView = mEmailView;
             cancel = true;
         } else if (!isEmailValid(email)) {
-            mNumView.setError(getString(R.string.error_invalid_email));
-            focusView = mNumView;
+            mEmailView.setError(getString(R.string.error_invalid_email));
+            focusView = mEmailView;
             cancel = true;
         }
 
@@ -186,7 +185,7 @@ public class EnglishActivity extends AppCompatActivity implements LoaderCallback
             focusView.requestFocus();
         } else {
             // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
+            // perform the User login attempt.
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
@@ -195,7 +194,7 @@ public class EnglishActivity extends AppCompatActivity implements LoaderCallback
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.length() < 12;
+        return email.length() < 9;
     }
 
     private boolean isPasswordValid(String password) {
@@ -242,7 +241,7 @@ public class EnglishActivity extends AppCompatActivity implements LoaderCallback
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         return new CursorLoader(this,
-                // Retrieve data rows for the device user's 'profile' contact.
+                // Retrieve data rows for the device User's 'profile' contact.
                 Uri.withAppendedPath(ContactsContract.Profile.CONTENT_URI,
                         ContactsContract.Contacts.Data.CONTENT_DIRECTORY), ProfileQuery.PROJECTION,
 
@@ -252,7 +251,7 @@ public class EnglishActivity extends AppCompatActivity implements LoaderCallback
                 .CONTENT_ITEM_TYPE},
 
                 // Show primary email addresses first. Note that there won't be
-                // a primary email address if the user hasn't specified one.
+                // a primary email address if the User hasn't specified one.
                 ContactsContract.Contacts.Data.IS_PRIMARY + " DESC");
     }
 
@@ -272,27 +271,14 @@ public class EnglishActivity extends AppCompatActivity implements LoaderCallback
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
 
     }
-    public View.OnClickListener email_sign_in_button() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EnglishActivity.this.goToActivity(Stats_en.class);
-            }
-        };
-    }
-
-    private void goToActivity(Class<?> activity) {
-        Intent intent = new Intent(this, activity);
-        startActivity(intent);
-    }
 
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(EnglishActivity.this,
+                new ArrayAdapter<>(LatvianActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
-        mNumView.setAdapter(adapter);
+        mEmailView.setAdapter(adapter);
     }
 
 
@@ -308,7 +294,7 @@ public class EnglishActivity extends AppCompatActivity implements LoaderCallback
 
     /**
      * Represents an asynchronous login/registration task used to authenticate
-     * the user.
+     * the User.
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
@@ -363,3 +349,4 @@ public class EnglishActivity extends AppCompatActivity implements LoaderCallback
         }
     }
 }
+

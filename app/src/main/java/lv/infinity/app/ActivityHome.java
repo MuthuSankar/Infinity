@@ -1,4 +1,4 @@
-package lv.amigo.amigo;
+package lv.infinity.app;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -18,7 +18,7 @@ public class ActivityHome extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ActivityHome.this.goToActivity(EnglishActivity.class);
+                ActivityHome.this.goToActivity(Stats_en.class); // EnglishActivityLogin.class
             }
         };
     }

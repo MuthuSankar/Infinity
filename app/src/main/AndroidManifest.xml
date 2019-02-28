@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="lv.amigo.amigo">
-
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    package="lv.infinity.app">
+    <!-- To auto-complete the email text field in the login form with the User's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:allowBackup="true"
@@ -14,6 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".Shop_Category"
+            android:label="@string/title_activity_shop__category"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".welcomepage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +30,9 @@
             android:name=".EnglishActivity"
             android:label="@string/title_activity_english" />
         <activity
+            android:name=".EnglishActivityLogin"
+            android:label="@string/title_activity_english" />
+        <activity
             android:name=".LatvianActivity"
             android:label="@string/title_activity_latvian" />
         <activity
@@ -33,7 +40,7 @@
             android:label="@string/title_activity_russian" />
         <activity
             android:name=".Stats_en"
-            android:label="@string/title_activity_stats_en"></activity>
+            android:label="@string/title_activity_stats_en" />
     </application>
 
 </manifest>
