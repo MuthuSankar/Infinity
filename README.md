@@ -1,4 +1,6 @@
-# Infinity
+# Infinity Android Application
+
+# Description
 A brand new android mobile application for Infinity mobile tariff plan.
 
 ## Implemented
